@@ -1,0 +1,131 @@
+/* Base styling for TodoItem */
+.TodoItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--size-2);
+  cursor: pointer;
+  padding-block : var(--size-3);
+  padding-inline: var(--size-3);
+  background-color: var(--gray-1);
+  border: 1px solid var(--gray-4);
+  border-radius: var(--radius-2);
+  font-size: var(--font-size-2);
+  font-family: var(--font-family-sans);
+  box-shadow: var(--shadow-1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  inline-size: 100%; /* Logical property for width */
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-2);
+  }
+}
+
+/* Checkbox input styling */
+.TodoItem input[type="checkbox"] {
+  appearance: none;
+  block-size: var(--size-4);
+  inline-size: var(--size-4);
+  border: 2px solid var(--gray-6);
+  border-radius: var(--radius-1);
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  background-color: var(--gray-1);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:checked {
+    background-color: var(--green-5);
+    border-color: var(--green-7);
+  }
+
+
+  &:checked::after {
+    content: "✓";
+    color: var(--gray-1);
+    font-size: var(--font-size-3);
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Label and content styling */
+.TodoItem label {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--size-2);
+  cursor: pointer;
+  inline-size: 100%; /* Ensure full-width alignment */
+
+  & span:first-child {
+    font-size: var(--font-size-2);
+    color: var(--gray-8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & span:last-child {
+    font-size: var(--font-size-1);
+    color: var(--gray-6);
+  }
+}
+
+/* State: Completed */
+.TodoItem.Completed {
+  background-color: var(--green-1);
+  border-color: var(--green-5);
+  color: var(--green-7);
+  & label span:first-child {
+    text-decoration: line-through;
+    font-style: italic;
+  }
+}
+
+
+/* State: Overdue */
+.TodoItem.Overdue {
+  background-color: var(--red-1);
+  border-color: var(--red-5);
+  color: var(--red-8);
+
+  & label span:last-child {
+    font-weight: bold;
+    color: var(--red-8);
+  }
+}
+
+/* Container Query for Small TodoItem Sizes */
+@container (max-inline-size: 400px) {
+  .TodoItem {
+    padding: var(--size-2-block) var(--size-2-inline);
+    grid-template-columns: auto 1fr;
+    font-size: var(--font-size-1);
+  }
+
+  .TodoItem label {
+    grid-template-columns: 1fr;
+    gap: var(--size-1);
+  }
+
+  .TodoItem label span:last-child {
+    font-size: var(--font-size-0);
+  }
+}
+
+/* Container Query for Larger TodoItem Sizes */
+@container (min-inline-size: 800px) {
+  .TodoItem {
+    padding: var(--size-4-block) var(--size-4-inline);
+    font-size: var(--font-size-3);
+  }
+
+  .TodoItem input[type="checkbox"] {
+    block-size: var(--size-5);
+    inline-size: var(--size-5);
+  }
+}

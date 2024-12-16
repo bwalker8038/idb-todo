@@ -1,0 +1,8 @@
+@import "open-props/style";
+@import "open-props/normalize";
+@import "open-props/colors-hsl";
+
+#root {
+  max-width: fit-content;
+  margin-inline: auto;
+}
