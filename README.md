@@ -1,7 +1,3 @@
-Here’s the updated README with your name, GitHub username, and the correct API endpoint details:
-
----
-
 # Todo App
 
 A lightweight, offline-first Todo application built with modern web technologies. This app leverages **IndexedDB** for local storage, ensures seamless data synchronization with a backend API, and provides an intuitive user experience with React.
@@ -199,6 +195,3 @@ npm test
 
 Developed by [Brad Walker](https://github.com/bwalker8038).
 
----
-
-Let me know if there’s anything else you’d like to add or tweak! 🚀
