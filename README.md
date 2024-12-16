@@ -170,17 +170,6 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 - **`useUpdateTodo`**:
   A custom hook that manages todo updates with optimistic UI updates and API synchronization. Supports request cancellation via `AbortController`.
 
----
-
-## Running Tests
-
-To run tests, use the following command:
-
-```bash
-npm test
-```
-
----
 
 ## Possible Enhancements
 
